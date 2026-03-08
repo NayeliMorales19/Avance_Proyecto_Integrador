@@ -14,27 +14,37 @@
 
             <div class="mb-3">
               <label>Email</label>
-              <input type="email" class="form-control">
+              <input type="email"
+              class="form-control mb-3"
+              placeholder="Email"
+              [(ngModel)]="email"
+              name="email"
+              required>
             </div>
 
             <div class="mb-3">
               <label>Password</label>
-              <input type="password" class="form-control">
+              <input type="password"
+              class="form-control mb-3"
+              placeholder="Password"
+              [(ngModel)]="password"
+              name="password"
+              required>
             </div>
 
-          <a routerLink="/menu" class="btn btn-primary w-100">
-            Iniciar sesión
-          </a>
+            <a routerLink="/menu" class="btn btn-primary w-100">
+              Iniciar sesión
+            </a>
 
           </form>
 
           <a routerLink="/register" class="btn btn-secondary w-100 mt-2">
-              Crear cuenta
+            Crear cuenta
           </a>
 
         </div>
       </div>
     </div>
-
+    
   </div>
 </div>
