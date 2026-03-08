@@ -18,20 +18,26 @@ export class Login {
 
   constructor(private auth:AuthService, private router:Router){}
 
-  login(){
+ login(){
 
-    const user=this.auth.login(this.email,this.password);
+  // validar campos vacíos
+  if(!this.email || !this.password){
+    alert("Debes ingresar email y contraseña");
+    return;
+  }
 
-    if(user){
+  const user = this.auth.login(this.email, this.password);
 
-      this.router.navigate(['/menu']);
+  if(user){
 
-    }else{
+    this.router.navigate(['/menu']);
 
-      alert("Usuario no registrado");
+  }else{
 
-    }
+    alert("Usuario o contraseña incorrectos");
 
   }
+
+}
 
 }
