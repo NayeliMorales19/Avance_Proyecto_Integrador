@@ -1,85 +1,94 @@
 <div class="container mt-5">
 
-<div class="row justify-content-center">
+  <div class="row justify-content-center">
 
-<div class="col-md-4">
+    <div class="col-md-4">
 
-<div class="card shadow">
+      <div class="card shadow">
 
-<div class="card-header bg-success text-white text-center">
-Registro
-</div>
+        <div class="card-header bg-success text-white text-center">
+          Registro
+        </div>
 
-<div class="card-body">
+        <div class="card-body">
 
-    <form #registerForm="ngForm" (ngSubmit)="register()">
+          <form #registerForm="ngForm" (ngSubmit)="register()">
 
-<input
-type="text"
-class="form-control mb-1"
-placeholder="Nombre"
-[(ngModel)]="user.name"
-name="name"
-required
-pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$"
-#name="ngModel"
->
+            <!-- NOMBRE -->
 
-<div *ngIf="name.invalid && name.touched" class="text-danger mb-2">
-El nombre solo puede contener letras
-</div>
+            <input
+            type="text"
+            class="form-control mb-1"
+            placeholder="Nombre"
+            [(ngModel)]="user.name"
+            name="name"
+            required
+            pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$"
+            #name="ngModel"
+            >
 
-
-<input
-type="email"
-class="form-control mb-1"
-placeholder="Email"
-[(ngModel)]="user.email"
-name="email"
-required
-#email="ngModel"
->
-
-<div *ngIf="email.invalid && email.touched" class="text-danger mb-2">
-Ingresa un correo válido
-</div>
+            <div *ngIf="name.invalid && name.touched" class="text-danger mb-2">
+              El nombre solo puede contener letras
+            </div>
 
 
-<input
-type="password"
-class="form-control mb-1"
-placeholder="Password"
-[(ngModel)]="user.password"
-name="password"
-required
-pattern="^(?=.*[A-Z])(?=.*[0-9]).{8,}$"
-#password="ngModel"
->
+            <!-- EMAIL -->
 
-<div *ngIf="password.invalid && password.touched" class="text-danger mb-2">
-La contraseña debe tener mínimo 8 caracteres, una mayúscula y un número
-</div>
+            <input
+            type="email"
+            class="form-control mb-1"
+            placeholder="Email"
+            [(ngModel)]="user.email"
+            name="email"
+            required
+            pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+            #email="ngModel"
+            >
+
+            <div *ngIf="email.invalid && email.touched" class="text-danger mb-2">
+              Ingresa un correo válido (ejemplo: usuario@email.com)
+            </div>
 
 
-<button
-class="btn btn-success w-100 mt-2"
-[disabled]="registerForm.invalid"
->
-Registrarse
-</button>
+            <!-- PASSWORD -->
 
-</form>
+            <input
+            type="password"
+            class="form-control mb-1"
+            placeholder="Password"
+            [(ngModel)]="user.password"
+            name="password"
+            required
+            pattern="^(?=.*[A-Z])(?=.*[0-9]).{8,}$"
+            #password="ngModel"
+            >
 
-<a routerLink="/" class="btn btn-secondary w-100 mt-2">
-Volver al login
-</a>
+            <div *ngIf="password.invalid && password.touched" class="text-danger mb-2">
+              La contraseña debe tener mínimo 8 caracteres, una mayúscula y un número
+            </div>
 
-</div>
 
-</div>
+            <!-- BOTON -->
 
-</div>
+            <button
+            class="btn btn-success w-100 mt-2"
+            [disabled]="registerForm.invalid"
+            >
+              Registrarse
+            </button>
 
-</div>
+          </form>
+
+          <a routerLink="/" class="btn btn-secondary w-100 mt-2">
+            Volver al login
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </div>
