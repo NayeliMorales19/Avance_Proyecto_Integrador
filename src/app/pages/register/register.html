@@ -2,40 +2,41 @@
 
 <div class="row justify-content-center">
 
-<div class="col-md-5">
+<div class="col-md-4">
 
-<div class="card">
+<div class="card shadow">
 
-<div class="card-header text-center">
-<h4>Registro de Usuario</h4>
+<div class="card-header bg-success text-white text-center">
+Registro
 </div>
 
 <div class="card-body">
 
-<form>
+<form (ngSubmit)="register()">
 
-<div class="mb-3">
-<label>Nombre</label>
-<input type="text" class="form-control">
-</div>
+<input type="text" class="form-control mb-3"
+placeholder="Nombre"
+[(ngModel)]="user.name"
+name="name">
 
-<div class="mb-3">
-<label>Email</label>
-<input type="email" class="form-control">
-</div>
+<input type="email" class="form-control mb-3"
+placeholder="Email"
+[(ngModel)]="user.email"
+name="email">
 
-<div class="mb-3">
-<label>Password</label>
-<input type="password" class="form-control">
-</div>
+<input type="password" class="form-control mb-3"
+placeholder="Password"
+[(ngModel)]="user.password"
+name="password">
 
 <button class="btn btn-success w-100">
-Registrar
+Registrarse
 </button>
 
 </form>
-<a routerLink="/" class="btn btn-secondary w-100 mt-3">
-  Volver al login
+
+<a routerLink="/" class="btn btn-secondary w-100 mt-2">
+Volver al login
 </a>
 
 </div>
