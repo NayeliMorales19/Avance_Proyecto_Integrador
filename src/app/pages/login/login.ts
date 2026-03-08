@@ -28,11 +28,14 @@ export class Login {
 
   const user = this.auth.login(this.email, this.password);
 
-  if(user){
+if(user){
 
-    this.router.navigate(['/menu']);
+  localStorage.setItem("loggedUser", JSON.stringify(user));
 
-  }else{
+  this.router.navigate(['/menu']);
+
+}
+  else{
 
     alert("Usuario o contraseña incorrectos");
 
