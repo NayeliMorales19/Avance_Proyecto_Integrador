@@ -10,4 +10,13 @@ import { RouterLink } from '@angular/router';
 })
 export class Menu {
 
+logout(){
+
+  localStorage.removeItem("loggedUser");
+
+  location.href="/";
+
 }
+  
+}
+
