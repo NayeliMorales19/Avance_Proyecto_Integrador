@@ -12,24 +12,59 @@ Registro
 
 <div class="card-body">
 
-<form (ngSubmit)="register()">
+    <form #registerForm="ngForm" (ngSubmit)="register()">
 
-<input type="text" class="form-control mb-3"
+<input
+type="text"
+class="form-control mb-1"
 placeholder="Nombre"
 [(ngModel)]="user.name"
-name="name">
+name="name"
+required
+pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$"
+#name="ngModel"
+>
 
-<input type="email" class="form-control mb-3"
+<div *ngIf="name.invalid && name.touched" class="text-danger mb-2">
+El nombre solo puede contener letras
+</div>
+
+
+<input
+type="email"
+class="form-control mb-1"
 placeholder="Email"
 [(ngModel)]="user.email"
-name="email">
+name="email"
+required
+#email="ngModel"
+>
 
-<input type="password" class="form-control mb-3"
+<div *ngIf="email.invalid && email.touched" class="text-danger mb-2">
+Ingresa un correo válido
+</div>
+
+
+<input
+type="password"
+class="form-control mb-1"
 placeholder="Password"
 [(ngModel)]="user.password"
-name="password">
+name="password"
+required
+pattern="^(?=.*[A-Z])(?=.*[0-9]).{8,}$"
+#password="ngModel"
+>
 
-<button class="btn btn-success w-100">
+<div *ngIf="password.invalid && password.touched" class="text-danger mb-2">
+La contraseña debe tener mínimo 8 caracteres, una mayúscula y un número
+</div>
+
+
+<button
+class="btn btn-success w-100 mt-2"
+[disabled]="registerForm.invalid"
+>
 Registrarse
 </button>
 
