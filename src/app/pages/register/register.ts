@@ -23,12 +23,20 @@ export class Register {
 
   register(){
 
-    this.auth.register(this.user);
+  if(!this.user.name || !this.user.email || !this.user.password){
 
-    alert("Usuario registrado");
+    alert("Completa todos los campos");
 
-    this.router.navigate(['/']);
+    return;
 
   }
+
+  this.auth.register(this.user);
+
+  alert("Usuario registrado");
+
+  this.router.navigate(['/']);
+
+}
 
 }
