@@ -3,11 +3,12 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule,RouterLink],
+  imports: [FormsModule, RouterLink, CommonModule],
   templateUrl: './register.html',
   styleUrl: './register.css'
 })
@@ -23,20 +24,19 @@ export class Register {
 
   register(){
 
-  if(!this.user.name || !this.user.email || !this.user.password){
+    if(!this.user.name || !this.user.email || !this.user.password){
 
-    alert("Completa todos los campos");
+      alert("Completa todos los campos");
+      return;
 
-    return;
+    }
+
+    this.auth.register(this.user);
+
+    alert("Usuario registrado");
+
+    this.router.navigate(['/']);
 
   }
-
-  this.auth.register(this.user);
-
-  alert("Usuario registrado");
-
-  this.router.navigate(['/']);
-
-}
 
 }
