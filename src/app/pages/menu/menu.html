@@ -2,7 +2,17 @@
 
 <div class="container-fluid">
 
-<a class="navbar-brand">Sistema Usuarios</a>
+<a class="navbar-brand fw-bold">Proyecto Integrador</a>
+
+<div class="d-flex align-items-center">
+
+<span class="text-white me-3">
+Bienvenida {{userName}}
+</span>
+
+<button class="btn btn-info me-2">
+ℹ️ Información
+</button>
 
 <button class="btn btn-danger" (click)="logout()">
 Cerrar sesión
@@ -10,17 +20,83 @@ Cerrar sesión
 
 </div>
 
+</div>
+
 </nav>
+
+
 
 <div class="container mt-5">
 
-<div class="card shadow">
+<div class="row justify-content-center">
 
-<div class="card-body text-center">
+<div class="col-md-6">
 
-<h2>Bienvenido al Sistema</h2>
+<div class="card shadow-lg border-0">
 
-<p>Has iniciado sesión correctamente.</p>
+<div class="card-body text-center p-5">
+
+<h2 class="fw-bold mb-3">
+Bienvenida {{userName}}
+</h2>
+
+<p class="text-muted">
+Has iniciado sesión correctamente en el sistema.
+</p>
+
+
+
+<div class="row mt-4">
+
+<div class="col-md-6 mb-3">
+
+<div class="card shadow-sm border-0">
+
+<div class="card-body">
+
+<h5>👤 Usuario</h5>
+
+<p class="text-muted mb-0">
+Acceso activo al sistema
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-6 mb-3">
+
+<div class="card shadow-sm border-0">
+
+<div class="card-body">
+
+<h5>🔐 Seguridad</h5>
+
+<p class="text-muted mb-0">
+Sesión iniciada correctamente
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<button class="btn btn-danger mt-4" (click)="logout()">
+Cerrar sesión
+</button>
+
+</div>
+
+</div>
 
 </div>
 

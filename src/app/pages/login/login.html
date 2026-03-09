@@ -1,46 +1,86 @@
-<div class="container vh-100 d-flex justify-content-center align-items-center">
+<!-- NAVBAR -->
 
-  <div class="col-md-4">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+  <div class="container">
 
-    <div class="card shadow-lg">
+    <a class="navbar-brand fw-bold fs-4">
+      Proyecto Integrador
+    </a>
 
-      <div class="card-header bg-primary text-white text-center">
-        <h4>Login</h4>
-      </div>
+    <div>
+      <a routerLink="/" class="btn btn-outline-light me-2">
+        Login
+      </a>
 
-      <div class="card-body">
+      <a routerLink="/register" class="btn btn-success">
+        Registro
+      </a>
+    </div>
 
-        <form (ngSubmit)="login()">
+  </div>
+</nav>
 
-          <input
+
+<!-- LOGIN -->
+
+<div class="login-bg">
+
+  <div class="login-card">
+
+    <div class="login-header">
+      <h3>Bienvenido</h3>
+      <p>Ingresa tus datos para continuar</p>
+    </div>
+
+    <form (ngSubmit)="login()">
+
+      <div class="form-group">
+
+        <label>Correo electrónico</label>
+
+        <input
           type="email"
-          class="form-control mb-3"
-          placeholder="Email"
+          class="form-control"
+          placeholder="usuario@email.com"
           [(ngModel)]="email"
           name="email"
           required
-          >
+        >
 
-          <input
+      </div>
+
+      <div class="form-group">
+
+        <label>Contraseña</label>
+
+        <input
           type="password"
-          class="form-control mb-3"
-          placeholder="Password"
+          class="form-control"
+          placeholder="••••••••"
           [(ngModel)]="password"
           name="password"
           required
-          >
-
-          <button class="btn btn-primary w-100">
-            Iniciar sesión
-          </button>
-
-        </form>
-
-        <a routerLink="/register" class="btn btn-secondary w-100 mt-2">
-          Crear cuenta
-        </a>
+        >
 
       </div>
+
+      <button class="btn btn-login w-100">
+        Ingresar
+      </button>
+
+    </form>
+
+    <div class="divider"></div>
+
+    <div class="text-center">
+
+      <p class="text-muted">
+        ¿No tienes cuenta?
+      </p>
+
+      <a routerLink="/register" class="btn btn-outline-secondary w-100">
+        Crear cuenta
+      </a>
 
     </div>
 

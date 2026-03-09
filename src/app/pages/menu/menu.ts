@@ -10,6 +10,19 @@ import { RouterLink } from '@angular/router';
 })
 export class Menu {
 
+userName:any="";
+
+ngOnInit(){
+
+  const userData = localStorage.getItem("loggedUser");
+
+  if(userData){
+    const user = JSON.parse(userData);
+    this.userName = user.name;
+  }
+
+}
+
 logout(){
 
   localStorage.removeItem("loggedUser");
@@ -17,6 +30,5 @@ logout(){
   location.href="/";
 
 }
-  
-}
 
+}

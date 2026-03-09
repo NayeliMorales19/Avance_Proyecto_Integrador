@@ -33,7 +33,7 @@ if(user){
   localStorage.setItem("loggedUser", JSON.stringify(user));
 
   this.router.navigate(['/menu']);
-
+  
 }
   else{
 
